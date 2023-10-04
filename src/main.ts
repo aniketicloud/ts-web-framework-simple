@@ -1,8 +1,8 @@
-import axios from "axios";
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
+import { User } from "./models/User";
 
 import { worker } from "./mocks/browser";
 worker.start();
@@ -27,6 +27,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
-fetch("https://jsonplaceholder.typicode.com/todos/1")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+const user = User.buildUser({ id: 1 });
+user.on("change", () => {
+  console.log(user);
+});
+user.fetch();

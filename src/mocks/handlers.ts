@@ -14,6 +14,17 @@ export const handlers = [
     );
   }),
 
+  rest.get("http://localhost:3000/users/1", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        id: 1,
+        name: "newer name",
+        age: 0,
+      })
+    );
+  }),
+
   rest.post("/login", (req, res, ctx) => {
     // Persist user's authentication in the session
     sessionStorage.setItem("is-authenticated", "true");
