@@ -1,3 +1,4 @@
+import axios from "axios";
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
